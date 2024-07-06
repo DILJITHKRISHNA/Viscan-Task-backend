@@ -28,7 +28,7 @@ export const AddUser = async (req, res) => {
             res.status(200).json({ success: true, message: 'User created successfully', newUser, token })
         } else {
             console.log("Missing credentials!");
-            res.status(400).json({ message: 'missing credentials!' })
+            res.json({ message: 'missing credentials!' })
         }
     } catch (error) {
         console.log(error);
