@@ -14,8 +14,9 @@ app.use(cors({
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+
 app.use('/', UserRoutes)
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 5000, () => {
     console.log(`server listening on port ${process.env.PORT}!`)
 })

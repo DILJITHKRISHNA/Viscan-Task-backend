@@ -18,13 +18,12 @@ model User {
   email     String    @unique
   name      String
   password  String
-  wishlist  Wishlist[]
 }
 
 model Wishlist {
   id          Int     @id @default(autoincrement())
-  place       String
+  place       String  @unique
   temperature String
-  userId      Int
-  user        User    @relation(fields: [userId], references: [id])
+  description String
+  humidity    String
 }

@@ -1,9 +1,14 @@
 import express from 'express'
 const router = express.Router()
-import { AddUser, GetAllUser, LoginUser } from '../Controller/UserController.js'
+import { AddToFav, AddUser, DeleteUserFav, GetAllUser, GetCityDailyForcast, GetCityWeather, GetFavorites, LoginUser } from '../Controller/UserController.js'
 
-router.post('/createuser', AddUser)
-router.post('/loginuser', LoginUser)
+router.post('/register', AddUser)
+router.post('/login', LoginUser)
 router.get('/allusers', GetAllUser)
+router.get('/weather/current/:city', GetCityWeather)
+router.get('/weather/forecast/:city', GetCityDailyForcast)
+router.post('/favorites/:name/:temp/:desc/:humidity', AddToFav)
+router.get('/favorites', GetFavorites)
+router.get('/delete/:id', DeleteUserFav)
 
 export default router
