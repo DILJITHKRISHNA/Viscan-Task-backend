@@ -26,7 +26,7 @@ Initial setup: -
   ➱After cloning the project, the name might be a bit complicated so rename it to anything like backend.
   ➱Navigate to the folder with **cd backend** command and install the node package manager with  **npm install** command.
   ➱I added the .env file in the root directory.
-  ➱Apply database migrations using **npx prisma migrate dev** this command.
+  ➱Apply database migrations using **npx prisma migrate dev** command.
   ➱ To start the backend server, use **npm start** command.
   
 3)Setup frontend
@@ -34,7 +34,7 @@ Initial setup: -
   ➱ **npm install**
   ➱ To start the frontend, use **npm run dev** command
 
- Access the application using http://localhost:5173 this url.
+ Access the application using http://localhost:5173  url.
 
 If you are facing any issues with accessing or if I lack any instructions, my apologies for it. Feel free to connect with me to clear up the issue.
   
