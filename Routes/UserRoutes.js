@@ -10,5 +10,6 @@ router.get('/weather/forecast/:city', GetCityDailyForcast)
 router.post('/favorites/:name/:temp/:desc/:humidity', AddToFav)
 router.get('/favorites', GetFavorites)
 router.get('/delete/:id', DeleteUserFav)
+// router.get('/weather/historical/:city', GetPastForecast)
 
 export default router

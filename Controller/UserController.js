@@ -140,10 +140,33 @@ export const DeleteUserFav = async (req, res) => {
         console.log(req.params, "iddddddddddd");
         const { id } = req.params
         const deleteFav = await prisma.wishlist.delete({
-            where : {id: Number(id)}
+            where: { id: Number(id) }
         });
         res.json({ success: true, message: 'City deleted from wishlist', deleteFav });
     } catch (error) {
         console.log(error.message);
     }
 }
+// export const GetPastForecast = async (req, res) => {
+//     const { city } = req.params;
+//     try {
+//         const geoResponse = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${process.env.API_KEY}`);
+//         const geoData = geoResponse.data;
+
+//         if (geoData.length === 0) {
+//             res.status(404).send('City not found');
+//         }
+//         const start = new Date();
+//         const end = new Date();
+//         start.setDate(end.getDate() - 7);
+
+//         const { lat, lon } = geoData[0];
+
+//         const weatherUrl = `https://history.openweathermap.org/data/2.5/history/city?lat=${lat}&lon=${lon}&type=hour&start=${start}&end=${end}&appid=${process.env.API_KEY}`;
+//         const weatherResponse = await axios.get(weatherUrl);
+//         console.log(weatherResponse, "weather res");
+//         // res.json(weatherResponse.data);
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
