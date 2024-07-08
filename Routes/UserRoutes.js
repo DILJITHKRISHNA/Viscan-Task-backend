@@ -1,6 +1,15 @@
 import express from 'express'
 const router = express.Router()
-import { AddToFav, AddUser, DeleteUserFav, GetAllUser, GetCityDailyForcast, GetCityWeather, GetFavorites, LoginUser } from '../Controller/UserController.js'
+import {
+    AddToFav,
+    AddUser,
+    DeleteUserFav,
+    GetAllUser,
+    GetCityDailyForcast,
+    GetCityWeather,
+    GetFavorites,
+    LoginUser
+} from '../Controller/UserController.js'
 
 router.post('/register', AddUser)
 router.post('/login', LoginUser)

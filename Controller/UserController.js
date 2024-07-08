@@ -137,7 +137,6 @@ export const GetFavorites = async (req, res) => {
 export const DeleteUserFav = async (req, res) => {
     console.log("deletefav");
     try {
-        console.log(req.params, "iddddddddddd");
         const { id } = req.params
         const deleteFav = await prisma.wishlist.delete({
             where: { id: Number(id) }
@@ -147,26 +146,36 @@ export const DeleteUserFav = async (req, res) => {
         console.log(error.message);
     }
 }
+
 // export const GetPastForecast = async (req, res) => {
 //     const { city } = req.params;
 //     try {
+//         // Fetching geographical coordinates of the city
 //         const geoResponse = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${process.env.API_KEY}`);
 //         const geoData = geoResponse.data;
 
 //         if (geoData.length === 0) {
-//             res.status(404).send('City not found');
+//             return res.status(404).send('City not found');
 //         }
+
 //         const start = new Date();
 //         const end = new Date();
 //         start.setDate(end.getDate() - 7);
 
-//         const { lat, lon } = geoData[0];
+//         const startDate = start.toISOString().split('T')[0];
+//         const endDate = end.toISOString().split('T')[0];
 
-//         const weatherUrl = `https://history.openweathermap.org/data/2.5/history/city?lat=${lat}&lon=${lon}&type=hour&start=${start}&end=${end}&appid=${process.env.API_KEY}`;
+//         const weatherUrl = `http://api.weatherstack.com/historical?access_key=${process.env.WEATHERSTACK_API_KEY}&query=${city}&historical_date_start=${startDate}&historical_date_end=${endDate}&hourly=1`;
+
 //         const weatherResponse = await axios.get(weatherUrl);
-//         console.log(weatherResponse, "weather res");
+//         console.log(weatherResponse,"weaether response data");
+
+//         if (weatherResponse.data.error) {
+//             return res.status(400).send(weatherResponse.data.error.info);
+//         }
 //         // res.json(weatherResponse.data);
 //     } catch (error) {
-//         console.log(error)
+//         console.error(error);
+//         res.status(500).send('Internal Server Error');
 //     }
-// }
+// };
