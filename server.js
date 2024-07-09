@@ -6,9 +6,10 @@ env.config()
 import UserRoutes from './Routes/UserRoutes.js'
 
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
+    origin: 'https://weather-vi-eosin.vercel.app',
     methods: ["GET", "POST", "PUT", "PATCH"],
     credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization'],
 }))
 
 app.use(express.urlencoded({ extended: true }))
